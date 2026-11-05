@@ -786,6 +786,14 @@ mot de passe vide.
   d'ajouter une abstraction non demandée.
 * **DevTools exclu du jar** — `<exclude>` dans `spring-boot-maven-plugin` pour
   éviter les redémarrages automatiques en production.
+* **`CorsConfig` ajouté pour le TP 9** — le client React (`lab9Microservice`,
+  port 3000) appelle cette API depuis le navigateur ; sans en-têtes CORS le
+  preflight `OPTIONS` du `POST` JSON est bloqué et la liste ne se charge pas. La
+  classe `ma.rest.spring.config.CorsConfig` autorise explicitement
+  `http://localhost:3000` et `http://127.0.0.1:3000` sur `/banque/**` plutôt que
+  `"*"`, avec un cache de preflight d'une heure. Trois tests MockMvc la
+  vérifient. Ce n'est pas une fonctionnalité du TP 8 : elle n'existe que pour
+  rendre le TP 9 utilisable, un proxy CRA ne fonctionnant qu'en développement.
 * **`mvn clean` et jar en cours d'exécution** — sur Windows, le jar packagé est
   verrouillé tant que le processus Java tourne ; il faut l'arrêter avant de
   relancer un build propre. De la même manière, ne pas rediriger la sortie du

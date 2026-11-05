@@ -1,3 +1,9 @@
+########################################################################
+# TP 8 - Backend ms-banque : mvn -B clean test
+# Date : 2026-11-05 01:39:18
+# Java : java version "17.0.18" 2026-01-20 LTS
+# Contexte : ajout de CorsConfig (TP 9, client React) ; 22 tests
+########################################################################
 [INFO] Scanning for projects...
 [INFO] 
 [INFO] -------------------------< ma.rest:ms-banque >--------------------------
@@ -14,14 +20,14 @@
 [INFO] 
 [INFO] --- compiler:3.13.0:compile (default-compile) @ ms-banque ---
 [INFO] Recompiling the module because of changed source code.
-[INFO] Compiling 7 source files with javac [debug parameters release 17] to target\classes
+[INFO] Compiling 8 source files with javac [debug parameters release 17] to target\classes
 [INFO] 
 [INFO] --- resources:3.3.1:testResources (default-testResources) @ ms-banque ---
 [INFO] skip non existing resourceDirectory C:\Users\DELL\Desktop\lab8Microservice\src\test\resources
 [INFO] 
 [INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ ms-banque ---
 [INFO] Recompiling the module because of changed dependency.
-[INFO] Compiling 2 source files with javac [debug parameters release 17] to target\test-classes
+[INFO] Compiling 3 source files with javac [debug parameters release 17] to target\test-classes
 [INFO] 
 [INFO] --- surefire:3.2.5:test (default-test) @ ms-banque ---
 [INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
@@ -29,32 +35,31 @@
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
-[INFO] Running ma.rest.spring.repositories.CompteRepositoryTest
-01:18:20.980 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [ma.rest.spring.repositories.CompteRepositoryTest]: CompteRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-01:18:21.105 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration ma.rest.spring.MsBanqueApplication for test class ma.rest.spring.repositories.CompteRepositoryTest
-01:18:21.193 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+[INFO] Running ma.rest.spring.config.CorsConfigTest
+01:39:08.208 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [ma.rest.spring.config.CorsConfigTest]: CorsConfigTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+01:39:08.338 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration ma.rest.spring.MsBanqueApplication for test class ma.rest.spring.config.CorsConfigTest
+01:39:08.506 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
   '  |____| .__|_| |_|_| |_\__, | / / / /
  =========|_|==============|___/=/_/_/_/
 
  :: Spring Boot ::                (v3.3.5)
 
-2026-11-05T01:18:21.499+01:00  INFO 22112 --- [ms-banque] [           main] m.r.s.repositories.CompteRepositoryTest  : Starting CompteRepositoryTest using Java 17.0.18 with PID 22112 (started by DELL in C:\Users\DELL\Desktop\lab8Microservice)
-2026-11-05T01:18:21.501+01:00  INFO 22112 --- [ms-banque] [           main] m.r.s.repositories.CompteRepositoryTest  : No active profile set, falling back to 1 default profile: "default"
-2026-11-05T01:18:21.976+01:00  INFO 22112 --- [ms-banque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-11-05T01:18:22.032+01:00  INFO 22112 --- [ms-banque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 1 JPA repository interface.
-2026-11-05T01:18:22.081+01:00  INFO 22112 --- [ms-banque] [           main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2026-11-05T01:18:22.289+01:00  INFO 22112 --- [ms-banque] [           main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:ab065de6-f464-4a6f-b300-3ec32b7c165c;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2026-11-05T01:18:22.524+01:00  INFO 22112 --- [ms-banque] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-11-05T01:18:22.572+01:00  INFO 22112 --- [ms-banque] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
-2026-11-05T01:18:22.598+01:00  INFO 22112 --- [ms-banque] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-11-05T01:18:22.875+01:00  INFO 22112 --- [ms-banque] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-11-05T01:18:23.624+01:00  INFO 22112 --- [ms-banque] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-Hibernate: 
+2026-11-05T01:39:08.777+01:00  INFO 36584 --- [ms-banque] [           main] ma.rest.spring.config.CorsConfigTest     : Starting CorsConfigTest using Java 17.0.18 with PID 36584 (started by DELL in C:\Users\DELL\Desktop\lab8Microservice)
+2026-11-05T01:39:08.779+01:00  INFO 36584 --- [ms-banque] [           main] ma.rest.spring.config.CorsConfigTest     : No active profile set, falling back to 1 default profile: "default"
+2026-11-05T01:39:09.874+01:00  INFO 36584 --- [ms-banque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-05T01:39:09.962+01:00  INFO 36584 --- [ms-banque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68 ms. Found 1 JPA repository interface.
+2026-11-05T01:39:10.586+01:00  INFO 36584 --- [ms-banque] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-11-05T01:39:10.663+01:00  INFO 36584 --- [ms-banque] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-11-05T01:39:10.694+01:00  INFO 36584 --- [ms-banque] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-11-05T01:39:11.181+01:00  INFO 36584 --- [ms-banque] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-05T01:39:11.223+01:00  INFO 36584 --- [ms-banque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-05T01:39:11.395+01:00  INFO 36584 --- [ms-banque] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:banque user=SA
+2026-11-05T01:39:11.396+01:00  INFO 36584 --- [ms-banque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-05T01:39:12.201+01:00  INFO 36584 --- [ms-banque] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
     create table compte (
         id bigint generated by default as identity,
         date_creation date,
@@ -62,382 +67,381 @@ Hibernate:
         type enum ('COURANT','EPARGNE'),
         primary key (id)
     )
-2026-11-05T01:18:23.665+01:00  INFO 22112 --- [ms-banque] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-11-05T01:18:24.052+01:00  INFO 22112 --- [ms-banque] [           main] m.r.s.repositories.CompteRepositoryTest  : Started CompteRepositoryTest in 2.869 seconds (process running for 3.846)
-Hibernate: 
+2026-11-05T01:39:12.260+01:00  INFO 36584 --- [ms-banque] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-05T01:39:13.926+01:00  INFO 36584 --- [ms-banque] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:banque'
+2026-11-05T01:39:14.041+01:00  INFO 36584 --- [ms-banque] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-11-05T01:39:14.042+01:00  INFO 36584 --- [ms-banque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-05T01:39:14.046+01:00  INFO 36584 --- [ms-banque] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-11-05T01:39:14.098+01:00  INFO 36584 --- [ms-banque] [           main] ma.rest.spring.config.CorsConfigTest     : Started CorsConfigTest in 5.605 seconds (process running for 6.891)
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-Hibernate: 
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-Hibernate: 
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Compte(id=1, solde=1529.144089483074, dateCreation=2026-11-05, type=EPARGNE)
-Compte(id=2, solde=706.7896607631104, dateCreation=2026-11-05, type=COURANT)
-Compte(id=3, solde=5036.863292478642, dateCreation=2026-11-05, type=EPARGNE)
 mvn.cmd : Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because 
 bootstrap classpath has been appended
-Au caractère Ligne:2 : 108
-+ ... roservice'; & 'C:\Program Files\JetBrains\IntelliJ IDEA 2025.3.2\plug ...
-+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Au caractère Ligne:4 : 1
++ & 'C:\Program Files\JetBrains\IntelliJ IDEA 2025.3.2\plugins\maven\li ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : NotSpecified: (Java HotSpot(TM...s been appended:String) [], RemoteException
     + FullyQualifiedErrorId : NativeCommandError
  
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
+    delete 
+    from
+        compte 
+    where
+        id=?
+    delete 
+    from
+        compte 
+    where
+        id=?
+    delete 
+    from
+        compte 
+    where
+        id=?
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
+    delete 
+    from
+        compte 
+    where
+        id=?
+    insert 
+    into
+        compte
+        (date_creation, solde, type, id) 
+    values
+        (?, ?, ?, default)
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
+    from
+        compte c1_0
+    select
+    from
+        compte c1_0
+    delete 
+    from
+        compte 
+    where
+        id=?
+    insert 
+    into
+        compte
+        (date_creation, solde, type, id) 
+    values
+        (?, ?, ?, default)
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.954 s -- in ma.rest.spring.config.CorsConfigTest
+[INFO] Running ma.rest.spring.repositories.CompteRepositoryTest
+2026-11-05T01:39:14.987+01:00  INFO 36584 --- [ms-banque] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [ma.rest.spring.repositories.CompteRepositoryTest]: CompteRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-05T01:39:15.017+01:00  INFO 36584 --- [ms-banque] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration ma.rest.spring.MsBanqueApplication for test class ma.rest.spring.repositories.CompteRepositoryTest
+2026-11-05T01:39:15.024+01:00  INFO 36584 --- [ms-banque] [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2026-11-05T01:39:15.051+01:00  INFO 36584 --- [ms-banque] [           main] m.r.s.repositories.CompteRepositoryTest  : Starting CompteRepositoryTest using Java 17.0.18 with PID 36584 (started by DELL in C:\Users\DELL\Desktop\lab8Microservice)
+2026-11-05T01:39:15.052+01:00  INFO 36584 --- [ms-banque] [           main] m.r.s.repositories.CompteRepositoryTest  : No active profile set, falling back to 1 default profile: "default"
+2026-11-05T01:39:15.127+01:00  INFO 36584 --- [ms-banque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-05T01:39:15.137+01:00  INFO 36584 --- [ms-banque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 JPA repository interface.
+2026-11-05T01:39:15.147+01:00  INFO 36584 --- [ms-banque] [           main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2026-11-05T01:39:15.173+01:00  INFO 36584 --- [ms-banque] [           main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:a5e2469b-616a-49c3-8211-8901b3f2bace;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2026-11-05T01:39:15.194+01:00  INFO 36584 --- [ms-banque] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-11-05T01:39:15.197+01:00  INFO 36584 --- [ms-banque] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-11-05T01:39:15.210+01:00  INFO 36584 --- [ms-banque] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-05T01:39:15.247+01:00  INFO 36584 --- [ms-banque] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+    create table compte (
+        id bigint generated by default as identity,
+        date_creation date,
+        solde float(53) not null,
+        type enum ('COURANT','EPARGNE'),
+        primary key (id)
+    )
+2026-11-05T01:39:15.250+01:00  INFO 36584 --- [ms-banque] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-05T01:39:15.291+01:00  INFO 36584 --- [ms-banque] [           main] m.r.s.repositories.CompteRepositoryTest  : Started CompteRepositoryTest in 0.267 seconds (process running for 8.084)
+    insert 
+    into
+        compte
+        (date_creation, solde, type, id) 
+    values
+        (?, ?, ?, default)
+    insert 
+    into
+        compte
+        (date_creation, solde, type, id) 
+    values
+        (?, ?, ?, default)
+    insert 
+    into
+        compte
+        (date_creation, solde, type, id) 
+    values
+        (?, ?, ?, default)
+    select
+    from
+        compte c1_0
+    select
+    from
+        compte c1_0
+    insert 
+    into
+        compte
+        (date_creation, solde, type, id) 
+    values
+        (?, ?, ?, default)
+    select
+    from
+        compte c1_0
+    select
     from
         compte c1_0 
     where
-        c1_0.id=?
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     select
         count(*) 
     from
         compte c1_0
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     SELECT
         type 
     FROM
         compte 
     WHERE
         id = ?
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-Hibernate: 
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.205 s -- in ma.rest.spring.repositories.CompteRepositoryTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.039 s -- in ma.rest.spring.repositories.CompteRepositoryTest
 [INFO] Running ma.rest.spring.web.CompteControllerTest
-2026-11-05T01:18:25.013+01:00  INFO 22112 --- [ms-banque] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [ma.rest.spring.web.CompteControllerTest]: CompteControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-11-05T01:18:25.027+01:00  INFO 22112 --- [ms-banque] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration ma.rest.spring.MsBanqueApplication for test class ma.rest.spring.web.CompteControllerTest
-2026-11-05T01:18:25.036+01:00  INFO 22112 --- [ms-banque] [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+2026-11-05T01:39:16.028+01:00  INFO 36584 --- [ms-banque] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [ma.rest.spring.web.CompteControllerTest]: CompteControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-05T01:39:16.037+01:00  INFO 36584 --- [ms-banque] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration ma.rest.spring.MsBanqueApplication for test class ma.rest.spring.web.CompteControllerTest
+2026-11-05T01:39:16.043+01:00  INFO 36584 --- [ms-banque] [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
   '  |____| .__|_| |_|_| |_\__, | / / / /
  =========|_|==============|___/=/_/_/_/
 
  :: Spring Boot ::                (v3.3.5)
 
-2026-11-05T01:18:25.077+01:00  INFO 22112 --- [ms-banque] [           main] m.rest.spring.web.CompteControllerTest   : Starting CompteControllerTest using Java 17.0.18 with PID 22112 (started by DELL in C:\Users\DELL\Desktop\lab8Microservice)
-2026-11-05T01:18:25.077+01:00  INFO 22112 --- [ms-banque] [           main] m.rest.spring.web.CompteControllerTest   : No active profile set, falling back to 1 default profile: "default"
-2026-11-05T01:18:25.731+01:00  INFO 22112 --- [ms-banque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-11-05T01:18:25.760+01:00  INFO 22112 --- [ms-banque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 1 JPA repository interface.
-2026-11-05T01:18:26.160+01:00  INFO 22112 --- [ms-banque] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
-2026-11-05T01:18:26.173+01:00  INFO 22112 --- [ms-banque] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-11-05T01:18:26.174+01:00  INFO 22112 --- [ms-banque] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
-2026-11-05T01:18:26.251+01:00  INFO 22112 --- [ms-banque] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-11-05T01:18:26.254+01:00  INFO 22112 --- [ms-banque] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1173 ms
-2026-11-05T01:18:26.278+01:00  INFO 22112 --- [ms-banque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-11-05T01:18:26.294+01:00  INFO 22112 --- [ms-banque] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn13: url=jdbc:h2:mem:banque user=SA
-2026-11-05T01:18:26.296+01:00  INFO 22112 --- [ms-banque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-11-05T01:18:26.302+01:00  INFO 22112 --- [ms-banque] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:banque'
-2026-11-05T01:18:26.416+01:00  INFO 22112 --- [ms-banque] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-11-05T01:18:26.421+01:00  INFO 22112 --- [ms-banque] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-11-05T01:18:26.437+01:00  INFO 22112 --- [ms-banque] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-11-05T01:18:26.478+01:00  INFO 22112 --- [ms-banque] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-Hibernate: 
-    create table compte (
-        id bigint generated by default as identity,
-        date_creation date,
-        solde float(53) not null,
-        type enum ('COURANT','EPARGNE'),
-        primary key (id)
-    )
-2026-11-05T01:18:26.499+01:00  INFO 22112 --- [ms-banque] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-11-05T01:18:28.139+01:00  INFO 22112 --- [ms-banque] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 49686 (http) with context path '/'
-2026-11-05T01:18:28.151+01:00  INFO 22112 --- [ms-banque] [           main] m.rest.spring.web.CompteControllerTest   : Started CompteControllerTest in 3.115 seconds (process running for 7.945)
-Hibernate: 
+2026-11-05T01:39:16.073+01:00  INFO 36584 --- [ms-banque] [           main] m.rest.spring.web.CompteControllerTest   : Starting CompteControllerTest using Java 17.0.18 with PID 36584 (started by DELL in C:\Users\DELL\Desktop\lab8Microservice)
+2026-11-05T01:39:16.073+01:00  INFO 36584 --- [ms-banque] [           main] m.rest.spring.web.CompteControllerTest   : No active profile set, falling back to 1 default profile: "default"
+2026-11-05T01:39:16.285+01:00  INFO 36584 --- [ms-banque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-05T01:39:16.293+01:00  INFO 36584 --- [ms-banque] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 1 JPA repository interface.
+2026-11-05T01:39:16.595+01:00  INFO 36584 --- [ms-banque] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2026-11-05T01:39:16.611+01:00  INFO 36584 --- [ms-banque] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-05T01:39:16.611+01:00  INFO 36584 --- [ms-banque] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-11-05T01:39:16.689+01:00  INFO 36584 --- [ms-banque] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-11-05T01:39:16.690+01:00  INFO 36584 --- [ms-banque] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 615 ms
+2026-11-05T01:39:16.701+01:00  INFO 36584 --- [ms-banque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-11-05T01:39:16.703+01:00  INFO 36584 --- [ms-banque] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn23: url=jdbc:h2:mem:banque user=SA
+2026-11-05T01:39:16.703+01:00  INFO 36584 --- [ms-banque] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-11-05T01:39:16.703+01:00  INFO 36584 --- [ms-banque] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:banque'
+2026-11-05T01:39:16.804+01:00  INFO 36584 --- [ms-banque] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-11-05T01:39:16.806+01:00  INFO 36584 --- [ms-banque] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-11-05T01:39:16.815+01:00  INFO 36584 --- [ms-banque] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-05T01:39:16.852+01:00  INFO 36584 --- [ms-banque] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-05T01:39:16.857+01:00  INFO 36584 --- [ms-banque] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-05T01:39:17.081+01:00  INFO 36584 --- [ms-banque] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 52640 (http) with context path '/'
+2026-11-05T01:39:17.084+01:00  INFO 36584 --- [ms-banque] [           main] m.rest.spring.web.CompteControllerTest   : Started CompteControllerTest in 1.042 seconds (process running for 9.877)
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-Hibernate: 
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-Hibernate: 
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Compte(id=1, solde=6220.278539341535, dateCreation=2026-11-05, type=EPARGNE)
-Compte(id=2, solde=4564.543257701488, dateCreation=2026-11-05, type=COURANT)
-Compte(id=3, solde=7056.949975485312, dateCreation=2026-11-05, type=EPARGNE)
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
+    delete 
+    from
+        compte 
+    where
+        id=?
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-2026-11-05T01:18:28.360+01:00  INFO 22112 --- [ms-banque] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-11-05T01:18:28.360+01:00  INFO 22112 --- [ms-banque] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-11-05T01:18:28.361+01:00  INFO 22112 --- [ms-banque] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2026-11-05T01:18:28.391+01:00  WARN 22112 --- [ms-banque] [o-auto-1-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: No acceptable representation]
-Hibernate: 
+2026-11-05T01:39:17.203+01:00  INFO 36584 --- [ms-banque] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-05T01:39:17.205+01:00  INFO 36584 --- [ms-banque] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-05T01:39:17.205+01:00  INFO 36584 --- [ms-banque] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-11-05T01:39:17.219+01:00  WARN 36584 --- [ms-banque] [o-auto-1-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: No acceptable representation]
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0 
     where
-        c1_0.id=?
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0 
     where
-        c1_0.id=?
-Hibernate: 
     update
         compte 
     set
@@ -446,308 +450,178 @@ Hibernate:
         type=? 
     where
         id=?
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0 
     where
-        c1_0.id=?
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0 
     where
-        c1_0.id=?
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     select
         count(*) 
     from
         compte c1_0
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-Hibernate: 
     select
         count(*) 
     from
         compte c1_0
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0 
     where
-        c1_0.id=?
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0 
     where
-        c1_0.id=?
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     select
         count(*) 
     from
         compte c1_0
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0 
     where
-        c1_0.id=?
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-Hibernate: 
     select
         count(*) 
     from
         compte c1_0
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     delete 
     from
         compte 
     where
         id=?
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0 
     where
-        c1_0.id=?
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0
-Hibernate: 
     insert 
     into
         compte
         (date_creation, solde, type, id) 
     values
         (?, ?, ?, default)
-Hibernate: 
     select
-        c1_0.id,
-        c1_0.date_creation,
-        c1_0.solde,
-        c1_0.type 
     from
         compte c1_0 
     where
-        c1_0.id=?
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.818 s -- in ma.rest.spring.web.CompteControllerTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.562 s -- in ma.rest.spring.web.CompteControllerTest
 [INFO] 
 [INFO] Results:
 [INFO] 
-[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  14.941 s
-[INFO] Finished at: 2026-11-05T01:18:29+01:00
+[INFO] Total time:  15.630 s
+[INFO] Finished at: 2026-11-05T01:39:17+01:00
 [INFO] ------------------------------------------------------------------------
