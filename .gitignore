@@ -1,0 +1,33 @@
+# --- Maven ---
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties
+.mvn/timing.properties
+
+# --- Logs (mais on garde les preuves d'execution du dossier docs/) ---
+*.log
+!docs/*.log
+
+# --- Fichiers temporaires generes pendant les tests ---
+boot.log
+run.log
+dep.txt
+
+# --- IDE ---
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.settings/
+.classpath
+.project
+.factorypath
+bin/
+
+# --- Systeme ---
+.DS_Store
+Thumbs.db
+desktop.ini

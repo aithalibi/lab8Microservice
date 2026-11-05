@@ -1,0 +1,142 @@
+=====================================================================
+ TP 8 - Spring @RestController : demonstration des endpoints
+ Serveur : http://localhost:8082
+=====================================================================
+
+### 1. GET /banque/comptes  (Accept: application/json)
+HTTP/1.1 200 
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Thu, 05 Nov 2026 00:14:17 GMT
+
+[{"id":1,"solde":3321.417770501406,"dateCreation":"2026-11-05","type":"EPARGNE"},{"id":2,"solde":6464.624377122525,"dateCreation":"2026-11-05","type":"COURANT"},{"id":3,"solde":8459.708578450454,"dateCreation":"2026-11-05","type":"EPARGNE"}]
+
+### 2. GET /banque/comptes  (Accept: application/xml)
+HTTP/1.1 200 
+Content-Type: application/xml
+Transfer-Encoding: chunked
+Date: Thu, 05 Nov 2026 00:14:17 GMT
+
+<List><item><id>1</id><solde>3321.417770501406</solde><dateCreation>2026-11-05</dateCreation><type>EPARGNE</type></item><item><id>2</id><solde>6464.624377122525</solde><dateCreation>2026-11-05</dateCreation><type>COURANT</type></item><item><id>3</id><solde>8459.708578450454</solde><dateCreation>2026-11-05</dateCreation><type>EPARGNE</type></item></List>
+
+### 3. GET /banque/comptes/1  (Accept: application/json)
+HTTP/1.1 200 
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Thu, 05 Nov 2026 00:14:18 GMT
+
+{"id":1,"solde":3321.417770501406,"dateCreation":"2026-11-05","type":"EPARGNE"}
+
+### 4. GET /banque/comptes/1  (Accept: application/xml)
+HTTP/1.1 200 
+Content-Type: application/xml
+Transfer-Encoding: chunked
+Date: Thu, 05 Nov 2026 00:14:18 GMT
+
+<compte><id>1</id><solde>3321.417770501406</solde><dateCreation>2026-11-05</dateCreation><type>EPARGNE</type></compte>
+
+### 5. GET /banque/comptes/9999  (identifiant inconnu -> 404)
+HTTP/1.1 404 
+Content-Length: 0
+Date: Thu, 05 Nov 2026 00:14:18 GMT
+
+
+
+### 6. POST /banque/comptes  (Content-Type: application/json -> 201 + Location)
+HTTP/1.1 201 
+Location: http://localhost:8082/banque/comptes/4
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Thu, 05 Nov 2026 00:14:18 GMT
+
+{"id":4,"solde":1500.0,"dateCreation":"2024-11-01","type":"COURANT"}
+
+### 7. POST /banque/comptes  (Content-Type: application/xml -> 201 + Location)
+HTTP/1.1 201 
+Location: http://localhost:8082/banque/comptes/5
+Content-Type: application/xml
+Transfer-Encoding: chunked
+Date: Thu, 05 Nov 2026 00:14:18 GMT
+
+<compte><id>5</id><solde>1500.0</solde><dateCreation>2024-11-01</dateCreation><type>COURANT</type></compte>
+
+### 8. PUT /banque/comptes/4  (Content-Type: application/json -> 200)
+HTTP/1.1 200 
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Thu, 05 Nov 2026 00:14:18 GMT
+
+{"id":4,"solde":2000.0,"dateCreation":"2024-11-01","type":"EPARGNE"}
+
+### 9. PUT /banque/comptes/5  (Content-Type: application/xml -> 200)
+HTTP/1.1 200 
+Content-Type: application/xml
+Transfer-Encoding: chunked
+Date: Thu, 05 Nov 2026 00:14:18 GMT
+
+<compte><id>5</id><solde>2000.0</solde><dateCreation>2024-11-01</dateCreation><type>EPARGNE</type></compte>
+
+### 10. PUT /banque/comptes/9999  (identifiant inconnu -> 404)
+HTTP/1.1 404 
+Content-Length: 0
+Date: Thu, 05 Nov 2026 00:14:18 GMT
+
+
+
+### 11. DELETE /banque/comptes/4  (-> 200)
+HTTP/1.1 200 
+Content-Length: 0
+Date: Thu, 05 Nov 2026 00:14:18 GMT
+
+
+
+### 12. DELETE /banque/comptes/4  (deja supprime -> 404)
+HTTP/1.1 404 
+Content-Length: 0
+Date: Thu, 05 Nov 2026 00:14:18 GMT
+
+
+
+### 13. POST avec un corps JSON invalide (-> 400 ProblemDetail)
+HTTP/1.1 400 
+Content-Type: application/problem+json
+Transfer-Encoding: chunked
+Date: Thu, 05 Nov 2026 00:14:18 GMT
+Connection: close
+
+{"type":"about:blank","title":"Requete invalide","status":400,"detail":"Corps de requete illisible : verifiez la syntaxe JSON/XML et les valeurs des champs.","instance":"/banque/comptes"}
+
+### 14. GET /banque/comptes/abc  (identifiant non numerique -> 400)
+HTTP/1.1 400 
+Content-Type: application/problem+json
+Transfer-Encoding: chunked
+Date: Thu, 05 Nov 2026 00:14:18 GMT
+Connection: close
+
+{"type":"about:blank","title":"Parametre invalide","status":400,"detail":"Parametre 'id' invalide : abc","instance":"/banque/comptes/abc"}
+
+### 15. GET /banque/comptes  (Accept: text/html -> 406 Not Acceptable)
+HTTP/1.1 406 
+Accept: application/json, application/xml
+Content-Type: text/html;charset=UTF-8
+Content-Language: fr-FR
+Content-Length: 280
+Date: Thu, 05 Nov 2026 00:14:18 GMT
+
+<html><body><h1>Whitelabel Error Page</h1><p>This application has no explicit mapping for /error, so you are seeing this as a fallback.</p><div id='created'>Thu Nov 05 01:14:18 CET 2026</div><div>There was an unexpected error (type=Not Acceptable, status=406).</div></body></html>
+
+### 16. Swagger / OpenAPI
+--- GET /v3/api-docs (extrait du document OpenAPI) ---
+{"openapi":"3.0.1","info":{"title":"MS Banque - API REST","description":"Service bancaire du TP 8 (Spring @RestController).\n\nLes cinq operations CRUD sont disponibles en JSON et en XML :\nle format renvoye depend de l'en-tete `Accept` de la requete.\n","contact":{"name":"Yasmine Ait Halibi"},"license":{"name":"MIT"},"version":"1.0.0"},"servers":[{"url":"http://localhost:8082","description":"Generated server url"}],"tags":[{"name":"Comptes","description":"Gestion des comptes bancaires (JSON et XML)"}],"paths":{"/banque/comptes/{id}":{"get":{"tags":["Comptes"],"summary":"Consulter un compte par son identifiant","operationId":"getCompteById","parameters":[{"name":"id","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"description":"Compte trouve","content":{"application/xml":{"schema":{"$ref":"#/components/schemas/Compte"}},"application/json":{"schema":{"$ref":"#/components/schemas/Compte"}}}},"404":{"description":"Aucun compte pour cet identifiant","content":{"application/xml":{"schema":{"$ref":"#/components/schemas/Compte"}},"application/json":{"schema":{"$ref":"#/components/schemas/Compte"}}}}}},"put":{"tags":["Comptes"],"summary":"Mettre a jour un compte existant","operationId":"updateCompte","parameters":[{"name":"id","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}],"requestBody":{"content":{"application/xml":{"schema":{"$ref":"#/components/schemas/Compte"}},"application/json":{"schema":{"$ref":"#/components/schemas/Compte"}}},"required":true},"responses":{"404":{"description":"Aucun compte pour cet identifiant","content":{"application/xml":{"schema":{"$ref":"#/components/schemas/Compte"}},"application/json":{"schema":{"$ref":"#/components/schemas/Compte"}}}},"200":{"description":"Compte mis a jour","content":{"application/xml":{"schema":{"$ref":"#/components/schemas/Compte"}},"application/json":{"schema":{"$ref":"#/components/schemas/Compte"}}}}}},"delete":{"tags":["Comptes"],"summary":"Supprimer un compte","operationId":"deleteCompte","parameters":[{"name":"id","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"200":{"description":"OK"}}}},"/banque/comptes":{"get":{"tags":["Comptes"],"summary":"Lister tous les comptes","operationId":"getAllComptes","responses":{"200":{"description":"OK","content":{"application/xml":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Compte"}}},"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Compte"}}}}}}},"post":{"tags":["Comptes"],"summary":"Creer un compte","operationId":"createCompte","requestBody":{"content":{"application/xml":{"schema":{"$ref":"#/components/schemas/Compte"}},"application/json":{"schema":{"$ref":"#/components/schemas/Compte"}}},"required":true},"responses":{"201":{"description":"Compte cree, l'URI est renvoyee dans l'en-tete Location","content":{"application/xml":{"schema":{"$ref":"#/components/schemas/Compte"}},"application/json":{"schema":{"$ref":"#/components/schemas/Compte"}}}}}}}},"components":{"schemas":{"Compte":{"type":"object","properties":{"id":{"type":"integer","format":"int64"},"solde":{"type":"number","format":"double"},"dateCreation":{"type":"string","format":"date-time"},"type":{"type":"string","enum":["COURANT","EPARGNE"]}}}}}}
+--- GET /swagger-ui.html ---
+HTTP 302 -> http://localhost:8082/swagger-ui/index.html
+--- GET /swagger-ui/index.html ---
+HTTP 200 (text/html)
+
+
+### 17. Console H2
+GET /h2-console -> HTTP 302 -> http://localhost:8082/h2-console/
+
+=====================================================================
+ Fin de la demonstration
+=====================================================================
